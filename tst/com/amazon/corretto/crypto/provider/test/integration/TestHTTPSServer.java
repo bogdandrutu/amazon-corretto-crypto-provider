@@ -261,6 +261,8 @@ public class TestHTTPSServer {
         javaInvocation.add("-cp");
         javaInvocation.add(classpathString.toString());
         javaInvocation.add("-Djava.library.path=" + System.getProperty("java.library.path"));
+        // TODO [childw] explain why/when this useful (server aborts connection)
+        //javaInvocation.add("-Djavax.net.debug=all");
         javaInvocation.addAll(Arrays.asList(args));
 
         return Runtime.getRuntime().exec(javaInvocation.toArray(new String[0]));
